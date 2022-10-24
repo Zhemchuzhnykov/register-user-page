@@ -19,7 +19,7 @@ function registerUser(event) {
     headers: {
       "Content-Type": "application/json;charset=utf-8",
     },
-    body: JSON.stringify(userData),
+    body: userData,
   })
     .then((response) => response.json())
     .then((user) => {
@@ -37,7 +37,7 @@ function prepareUser() {
   const user = Object.fromEntries(new FormData(form));
   user.createdAt = new Date();
 
-  return user;
+  return JSON.stringify(user);
 }
 
 function changeBtnState() {
