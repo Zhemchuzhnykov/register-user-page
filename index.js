@@ -12,14 +12,12 @@ form.addEventListener("submit", registerUser);
 function registerUser(event) {
   event.preventDefault();
 
-  const userData = prepareUser();
-
   fetch("https://63559402483f5d2df3b717aa.mockapi.io/api/v1/users", {
     method: "POST",
     headers: {
       "Content-Type": "application/json;charset=utf-8",
     },
-    body: userData,
+    body: getUser(),
   })
     .then((response) => response.json())
     .then((user) => {
@@ -33,7 +31,7 @@ function registerUser(event) {
     });
 }
 
-function prepareUser() {
+function getUser() {
   const user = Object.fromEntries(new FormData(form));
   user.createdAt = new Date();
 
