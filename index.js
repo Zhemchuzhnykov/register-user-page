@@ -38,8 +38,8 @@ function getUser() {
   return JSON.stringify(user);
 }
 
-function changeBtnState() {
-  if (form.reportValidity()) {
+function changeBtnState(event) {
+  if (form.checkValidity()) {
     submitBtn.removeAttribute("disabled");
   } else {
     submitBtn.setAttribute("disabled", true);
