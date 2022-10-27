@@ -5,9 +5,7 @@ const passwordInput = document.querySelector('[name="password"]');
 const submitBtn = document.querySelector(".submit-button");
 
 form.addEventListener("submit", registerUser);
-[emailInput, usernameInput, passwordInput].forEach((el) =>
-  el.addEventListener("keyup", changeBtnState)
-);
+form.addEventListener("input", onValidForm);
 
 function registerUser(event) {
   event.preventDefault();
@@ -38,10 +36,8 @@ function getUser() {
   return JSON.stringify(user);
 }
 
-function changeBtnState(event) {
-  if (form.checkValidity()) {
+function onValidForm() {
+  if (form.reportValidity()) {
     submitBtn.removeAttribute("disabled");
-  } else {
-    submitBtn.setAttribute("disabled", true);
   }
 }
