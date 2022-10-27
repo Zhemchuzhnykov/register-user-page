@@ -31,7 +31,6 @@ function registerUser(event) {
 
 function getUser() {
   const user = Object.fromEntries(new FormData(form));
-  user.createdAt = new Date();
 
   return JSON.stringify(user);
 }
